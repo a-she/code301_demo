@@ -16,6 +16,7 @@ blog.loadArticles = function() {
 
 blog.fetchArticles = function(data, message, xhr) {
   var eTag = xhr.getResponseHeader('eTag');
+  console.log("Server eTag="+ eTag);
   if (typeof localStorage.articlesEtag == 'undefined' || localStorage.articlesEtag != eTag) {
     console.log('cache miss!');
     localStorage.articlesEtag = eTag;
