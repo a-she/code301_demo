@@ -82,4 +82,6 @@ console.log('  a=' + a);
   $cmd.on('input', checksemi);
   $jqLoad.on('click', loadStuff);
   $rmLog.on('click', clearLog);
+
+  loadStuff();
 //});
