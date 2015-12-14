@@ -11,7 +11,7 @@ th { background-color: #abf;}
   font-weight: bold;
 }
 
-#rmLog {
+#rmLog, #jqLoad {
   display: inline-block;
   font-style: oblique;
   margin-top: 0.5rem;
@@ -20,3 +20,6 @@ th { background-color: #abf;}
   border-style: ridge;
   background-color: #9ef;
 }
+
+#redDiv  { color: red;   background-color: pink;  }
+#cellDiv { color: green; background-color: #eee; }

@@ -2,13 +2,23 @@ var $pLog  = $('#pLog');
 var $cmd   = $('#cmd');
 var $dbOut = $('#dbOut');
 var $rmLog = $('#rmLog');
+var $jqLoad = $('#jqLoad');
+var $loadingZone = $('#loadingZone');
+var fragmentName = '';
 
 function clearLog()   { $pLog.html(""); }
 function mylogNoBr(v) { $pLog.html($pLog.html() + v);          }
 function mylog(v)     { $pLog.html($pLog.html() + v + "<br>"); }
 
+function getParameterByKey(key) {
+  //Return a value stored in a given key from browser query string.
+  var match = RegExp('[?&]' + key + '=([^&]*)').exec(window.location.search);
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+};
+
 //$(function() {
-  // Init nonDB stuff.
+
+  // Init nonDB stuff
   clearLog();
   var articles = [];
   articlesURL = 'articles.json';
@@ -55,23 +65,21 @@ console.log('  a=' + a);
                   function(r) { mylog('<hr>'+cmd+"<br>"+JSON.stringify(r)); }
                  );
   }
-  // articles = [
-  //   { title: 'Ender\'s Game',
-  //     author: 'Orson Scott Card',
-  //     body:   'Enter was a young boy, but not from that song by John Cougar Melloncamp. Ender is a morphed version of \'Andrew\'. Ender saves the world.'},
-  //   { title: 'The Left Hand of Darkness',
-  //     author: 'Ursula K. Le Guin',
-  //     body:   'This novel won both Hugo and Nebula awards in the same year.'}
-  // ];
 
-  function checksemi(ev) {
+  function checksemi() {
     var cv = $cmd.val();
     if (cv.match(/.+;/)) {
-//    mylog('SQL command: "'+cv+'"');
       runSQLcmd(cv);
     }
   }
 
+  function loadStuff() {
+    fragmentName = getParameterByKey('fragment');
+    mylog('fragmentName = ' + fragmentName);
+    $loadingZone.load( fragmentName+'.html' );
+  }
+
   $cmd.on('input', checksemi);
+  $jqLoad.on('click', loadStuff);
   $rmLog.on('click', clearLog);
 //});
