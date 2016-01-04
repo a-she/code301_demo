@@ -2,7 +2,6 @@ var $pLog  = $('#pLog');
 var $cmd   = $('#cmd');
 var $dbOut = $('#dbOut');
 var $rmLog = $('#rmLog');
-var $jqLoad = $('#jqLoad');
 var $loadingZone = $('#loadingZone');
 var fragmentName = '';
 
@@ -73,15 +72,6 @@ console.log('  a=' + a);
     }
   }
 
-  function loadStuff() {
-    fragmentName = getParameterByKey('fragment');
-    mylog('fragmentName = ' + fragmentName);
-    $loadingZone.load( fragmentName+'.html' );
-  }
-
   $cmd.on('input', checksemi);
-  $jqLoad.on('click', loadStuff);
   $rmLog.on('click', clearLog);
-
-  loadStuff();
 //});

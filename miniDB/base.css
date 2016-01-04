@@ -1,24 +1,23 @@
-body { font-family: Helvetica, Arial, sans-serif; }
+body { font-family: Helvetica, Arial, sans-serif }
 
 table, th, td {
   border: 1px solid black;
-  border-collapse: collapse;
+  border-collapse: collapse
 }
-th { background-color: #abf;}
+th { background-color: #abf }
 
 #sc {
   font-style: italic;
-  font-weight: bold;
+  font-weight: bold
 }
 
-#rmLog, #jqLoad {
+#rmLog {
   display: inline-block;
   font-style: oblique;
   margin-top: 0.5rem;
   padding: 0.1rem 0.2rem;
-/*  border: 3px black;*/
   border-style: ridge;
-  background-color: #9ef;
+  background-color: #9ef
 }
 
 #redDiv  { color: red;   background-color: pink;  }
